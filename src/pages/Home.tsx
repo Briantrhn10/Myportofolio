@@ -5,6 +5,7 @@ import { Button } from '../components/Button';
 import { projects } from '../data';
 import { LinkedInIcon, GitHubIcon, TikTokIcon, InstagramIcon, DiscordIcon } from '../components/SocialIcons';
 import { ArrowUp } from 'lucide-react';
+import profileImg from '../assets/profile.jpg';
 
 export const Home = () => {
   const navigate = useNavigate();
@@ -49,11 +50,11 @@ export const Home = () => {
             </a>
           </div>
         </div>
-        <div className="w-64 h-64 md:w-80 md:h-80 shrink-0">
+        <div className="w-64 md:w-80 shrink-0">
           <img
-            src="https://images.unsplash.com/photo-1549692520-acc6669e2f0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            src={profileImg}
             alt="Brian Tarihoran"
-            className="w-full h-full object-cover brutal-border brutal-shadow"
+            className="w-full h-auto object-cover object-top brutal-border brutal-shadow"
           />
         </div>
       </section>
