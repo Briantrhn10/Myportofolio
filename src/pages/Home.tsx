@@ -88,11 +88,33 @@ export const Home = () => {
 
           <Card variant="blue" className="flex flex-col gap-4">
             <h3 className="text-3xl font-black uppercase">Sertifikasi & Pelatihan</h3>
-            <ul className="list-disc list-inside space-y-4 font-bold text-lg mt-4">
-              <li className="bg-[var(--bg-card-alt)] p-3 brutal-border brutal-shadow-sm">IBM Machine Learning (2025)</li>
-              <li className="bg-[var(--bg-card-alt)] p-3 brutal-border brutal-shadow-sm">AWS Cloud Practitioner (2025)</li>
-              <li className="bg-[var(--bg-card-alt)] p-3 brutal-border brutal-shadow-sm">Dicoding Machine Learning (2025)</li>
-            </ul>
+            <div className="space-y-4 mt-4 max-h-[350px] overflow-y-auto pr-2 custom-scrollbar">
+              <div className="bg-[var(--bg-card-alt)] p-3 brutal-border brutal-shadow-sm">
+                <p className="font-black uppercase text-sm mb-1 text-[var(--accent-primary)]">Dicoding</p>
+                <ul className="list-disc list-inside font-bold text-sm space-y-1">
+                  <li>Belajar Penerapan Data Science dengan Microsoft Fabric (2026)</li>
+                  <li>Introduction to Financial Literacy (2026)</li>
+                  <li>Belajar Machine Learning untuk Pemula (2025)</li>
+                  <li>Belajar Dasar AI (2025)</li>
+                </ul>
+              </div>
+              <div className="bg-[var(--bg-card-alt)] p-3 brutal-border brutal-shadow-sm">
+                <p className="font-black uppercase text-sm mb-1 text-[var(--accent-primary)]">IBM SkillsBuild & Coursera</p>
+                <ul className="list-disc list-inside font-bold text-sm space-y-1">
+                  <li>Introduction to Generative AI (2025)</li>
+                  <li>Introduction to Artificial Intelligence (2025)</li>
+                  <li>AI Ethics (2025)</li>
+                  <li>Career Management Essentials (2025)</li>
+                  <li>Getting Started with Data Warehousing and BI Analytics (2022)</li>
+                </ul>
+              </div>
+              <div className="bg-[var(--bg-card-alt)] p-3 brutal-border brutal-shadow-sm">
+                <p className="font-black uppercase text-sm mb-1 text-[var(--accent-primary)]">RevoU</p>
+                <ul className="list-disc list-inside font-bold text-sm space-y-1">
+                  <li>Intro to Software Engineering (2026)</li>
+                </ul>
+              </div>
+            </div>
           </Card>
         </div>
       </section>
