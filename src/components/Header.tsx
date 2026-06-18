@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Moon, Sun } from 'lucide-react';
 
 export const Header = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const isHome = location.pathname === '/';
 
   const [isDark, setIsDark] = useState(() => {
@@ -18,24 +19,36 @@ export const Header = () => {
     }
   }, [isDark]);
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    if (isHome) {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      navigate('/');
+      setTimeout(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
+  };
+
   return (
     <header className="sticky top-0 z-50 bg-[var(--bg-main)] border-b-[3px] border-[var(--border-dark)] py-5 mb-4 transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-6 flex justify-between items-center">
-        <a href={isHome ? "#profil" : "/"} className="text-3xl font-black uppercase tracking-tighter bg-[var(--accent-primary)] text-black px-3 py-1 brutal-border brutal-shadow inline-block">
+        <a href="#profil" onClick={(e) => handleNavClick(e, 'profil')} className="text-3xl font-black uppercase tracking-tighter bg-[var(--accent-primary)] text-black px-3 py-1 brutal-border brutal-shadow inline-block">
           BRIAN.
         </a>
 
         <nav className="flex gap-3 md:gap-4 lg:gap-5 font-bold uppercase text-sm md:text-base items-center">
-          <a href={isHome ? "#profil" : "/"} className={`hidden md:block px-4 py-2 text-black brutal-border brutal-shadow ${isHome ? 'bg-[var(--accent-pink)]' : 'bg-[var(--bg-card)]'}`}>
+          <a href="#profil" onClick={(e) => handleNavClick(e, 'profil')} className={`hidden md:block px-4 py-2 text-black brutal-border brutal-shadow ${isHome ? 'bg-[var(--accent-pink)]' : 'bg-[var(--bg-card)]'}`}>
             Profil
           </a>
-          <a href={isHome ? "#projects" : "/#projects"} className="px-4 py-2 text-black bg-[var(--accent-blue)] brutal-border brutal-shadow">
+          <a href="#projects" onClick={(e) => handleNavClick(e, 'projects')} className="px-4 py-2 text-black bg-[var(--accent-blue)] brutal-border brutal-shadow">
             Projects
           </a>
-          <a href={isHome ? "#education" : "/#education"} className="hidden lg:block px-4 py-2 text-black bg-[var(--accent-primary)] brutal-border brutal-shadow">
+          <a href="#education" onClick={(e) => handleNavClick(e, 'education')} className="hidden lg:block px-4 py-2 text-black bg-[var(--accent-primary)] brutal-border brutal-shadow">
             Pendidikan
           </a>
-          <a href={isHome ? "#experience" : "/#experience"} className="hidden lg:block px-4 py-2 text-black bg-[var(--accent-pink)] brutal-border brutal-shadow">
+          <a href="#experience" onClick={(e) => handleNavClick(e, 'experience')} className="hidden lg:block px-4 py-2 text-black bg-[var(--accent-pink)] brutal-border brutal-shadow">
             Pengalaman
           </a>
           <button 
